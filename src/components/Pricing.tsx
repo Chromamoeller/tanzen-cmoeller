@@ -50,7 +50,7 @@ export default function Pricing() {
       color: "from-purple-500 to-pink-500",
     },
     {
-      id: "private",
+      id: "private-solo",
       name: "Privatstunde ohne Partner",
       price: "130 €",
       duration: "pro Stunde",
@@ -117,11 +117,11 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="flex flex-wrap justify-center gap-8 mb-16">
           {pricingTiers.map((tier) => (
             <div
               key={tier.id}
-              className={`group relative cursor-pointer transition-all duration-300 ${
+              className={`group relative cursor-pointer transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] ${
                 selectedTier === tier.id ? "scale-105" : "hover:scale-105"
               }`}
               onClick={() => setSelectedTier(tier.id)}
