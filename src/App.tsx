@@ -1,11 +1,44 @@
+import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import DanceStyles from "./components/DanceStyles";
 import Instructor from "./components/Instructor";
 import Pricing from "./components/Pricing";
 import LineDance from "./components/LineDance";
+import Datenschutz from "./components/Datenschutz";
+import Impressum from "./components/Impressum";
 import { Facebook, Instagram } from "lucide-react";
 
 function App() {
+  const [route, setRoute] = useState<string>(window.location.hash);
+
+  useEffect(() => {
+    const onHashChange = () => setRoute(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  useEffect(() => {
+    if (route === "#datenschutz" || route === "#impressum") {
+      window.scrollTo(0, 0);
+    }
+  }, [route]);
+
+  if (route === "#datenschutz") {
+    return (
+      <div className="min-h-screen bg-white">
+        <Datenschutz />
+      </div>
+    );
+  }
+
+  if (route === "#impressum") {
+    return (
+      <div className="min-h-screen bg-white">
+        <Impressum />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Hero />
@@ -127,6 +160,20 @@ function App() {
 
           <div className="border-t border-white/20 pt-8 text-center text-white/60">
             <p>&copy; 2025 Tanzen Christian Möller Alle Rechte vorbehalten.</p>
+            <p className="mt-2 flex justify-center gap-4">
+              <a
+                href="#impressum"
+                className="hover:text-white transition-colors underline"
+              >
+                Impressum
+              </a>
+              <a
+                href="#datenschutz"
+                className="hover:text-white transition-colors underline"
+              >
+                Datenschutzerklärung
+              </a>
+            </p>
           </div>
         </div>
       </footer>
