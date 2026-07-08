@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Heart, Zap, Crown, Star } from "lucide-react";
-import WalzPic from "../assets/KIBilder/Walzer.jpg";
-import TangoPic from "../assets/KIBilder/Tango.jpg";
-import SalsaPic from "../assets/KIBilder/Chachacha.jpg";
-import FoxPic from "../assets/KIBilder/Discofox.jpg";
+import WalzPic from "../assets/KIBilder/Walzer.png";
+import TangoPic from "../assets/KIBilder/Tango.png";
+import SalsaPic from "../assets/KIBilder/Chachacha.png";
+import FoxPic from "../assets/KIBilder/Discofox.png";
 
 interface DanceStyle {
   id: string;

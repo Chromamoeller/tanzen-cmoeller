@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Check, Crown, Star, Sparkles } from "lucide-react";
+import { Check, Crown, Users, User, Heart, Sparkles } from "lucide-react";
 
 interface PricingTier {
   id: string;
@@ -22,7 +22,7 @@ export default function Pricing() {
       name: "Gruppenkurse",
       price: "4x60 Minuten 170 €",
       duration: "pro Paar",
-      icon: <Star className="w-6 h-6" />,
+      icon: <Users className="w-6 h-6" />,
       features: [
         "Als bestehende Gruppe oder mit Freunden",
         "Mehr Spaß durch gemeinsame Erlebnisse",
@@ -34,7 +34,7 @@ export default function Pricing() {
     },
     {
       id: "private",
-      name: "Privatstunde 1 Paar",
+      name: "Privatstunde ein Tanzpaar",
       price: "100 €",
       duration: "pro Stunde",
       icon: <Crown className="w-6 h-6" />,
@@ -52,9 +52,9 @@ export default function Pricing() {
     {
       id: "private-solo",
       name: "Privatstunde ohne Partner",
-      price: "130 €",
+      price: "150 €",
       duration: "pro Stunde",
-      icon: <Crown className="w-6 h-6" />,
+      icon: <User className="w-6 h-6" />,
       features: [
         "Tanzen in deinem Wohlfühltempo – ohne Leistungsdruck",
         "Aufbau von Selbstvertrauen und tänzerischer Präsenz",
@@ -63,15 +63,15 @@ export default function Pricing() {
         "Fokus auf deinen Lieblingstanz",
       ],
       recommended: true,
-      color: "from-pink-500 to-purple-500",
+      color: "from-fuchsia-600 to-indigo-600",
     },
     {
       id: "package",
-      name: "Hochzeitskurs für Brautpaar",
+      name: "Fit für den Hochzeitstanz",
       price: "175 €",
       originalPrice: "",
       duration: "2x60 Minuten",
-      icon: <Sparkles className="w-6 h-6" />,
+      icon: <Heart className="w-6 h-6" />,
       features: [
         "Sicher auf der Tanzfläche – ohne Lampenfieber",
         "Ein gemeinsamer Moment nur für euch zwei",
@@ -105,15 +105,14 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Investiert in eure
+            Schenkt euch gemeinsame
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent block">
-              Tanz Geschichte
+              Momente, die bleiben
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Wähle das Lernformat, das zu eurem Zeitplan, Budget und euren Zielen
-            passt. Jede Option beinhaltet Christians fachkundige Anleitung egal
-            ob im Studio oder bei euch Zuhause.
+            passt.
           </p>
         </div>
 
@@ -131,8 +130,8 @@ export default function Pricing() {
                   tier.recommended
                     ? "border-purple-200 ring-4 ring-purple-100"
                     : selectedTier === tier.id
-                    ? "border-purple-200"
-                    : "border-gray-100"
+                      ? "border-purple-200"
+                      : "border-gray-100"
                 }`}
               >
                 <div
@@ -153,7 +152,7 @@ export default function Pricing() {
 
                 <div className="p-6">
                   <ul className="space-y-4 mb-8">
-                    {tier.features.map((feature, index) => (
+                    {tier.features.slice(0, 3).map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div
                           className={`w-5 h-5 rounded-full bg-gradient-to-r ${tier.color} flex items-center justify-center flex-shrink-0 mt-0.5`}

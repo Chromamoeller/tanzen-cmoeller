@@ -42,14 +42,15 @@ export default function Instructor() {
                 Christian Möller
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Christian bringt in jede Stunde sein fundiertes Fachwissen,
-                authentische Leidenschaft und eine warme, motivierende
-                Unterrichtsatmosphäre. Mit über 15 Jahren Erfahrung in
-                verschiedenen Tanzschulen versteht er es, Menschen individuell
-                abzuholen und ihnen den Raum zu geben, sich tänzerisch
-                weiterzuentwickeln – unabhängig vom Können. So entsteht echtes
-                Vertrauen in die eigenen Fähigkeiten und Freude am Tanzen, die
-                bleibt.
+                Tanzen ist für mich mehr als ein Beruf – es ist meine
+                Leidenschaft, die ich seit über 15 Jahren mit Herzblut
+                weitergebe. In jeder Stunde bringe ich mein Fachwissen und echte
+                Freude daran mit, Menschen auf ihrem ganz eigenen Weg zu
+                begleiten – unabhängig davon, wo sie gerade stehen. Mir ist
+                wichtig, dass du dich bei mir wohlfühlst und den Raum bekommst,
+                dich in deinem eigenen Tempo zu entfalten. Genau dieses
+                Vertrauen in die eigenen Fähigkeiten – und die Freude am Tanzen,
+                die bleibt – möchte ich dir mit auf den Weg geben.
               </p>
             </div>
 
@@ -63,8 +64,11 @@ export default function Instructor() {
                   </h4>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Einige Wettbewerbe bestritten und gewonnen</li>
-                  <li>• Ausbildung zum Tanzlehrer 2019 abgeschlossen</li>
+                  <li>• DTSA Abzeichen in Bronze Silber und Gold</li>
+                  <li>
+                    • Abgeschlossene Ausbildung im Berufsverband Deutscher
+                    Tanzlehrer
+                  </li>
                 </ul>
               </div>
 

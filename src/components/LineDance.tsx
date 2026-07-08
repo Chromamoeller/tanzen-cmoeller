@@ -204,7 +204,10 @@ export default function LineDance() {
 
   return (
     <>
-      <section className="font-rye py-20 bg-gradient-to-br from-amber-50 to-orange-100 overflow-hidden">
+      <section
+        id="linedance"
+        className="font-rye py-20 bg-gradient-to-br from-amber-50 to-orange-100 overflow-hidden scroll-mt-8"
+      >
         <div className="max-w-[1600px] mx-auto px-6 flex gap-8 items-start">
           <img
             src={SommerFlyer}

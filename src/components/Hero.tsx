@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import { Sparkles, ChevronRight } from "lucide-react";
 import Bild from "../assets/Chris&JennyBearbeitet.jpg";
 export default function Hero() {
   return (
@@ -15,11 +15,24 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-          <Sparkles className="w-4 h-4 text-yellow-300" />
-          <span className="text-white/90 text-sm font-medium">
-            Hier startet deine Tanzreise
-          </span>
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <Sparkles className="w-4 h-4 text-yellow-300" />
+            <span className="text-white/90 text-sm font-medium">
+              Hier startet deine Tanzreise
+            </span>
+          </div>
+
+          <a
+            href="#linedance"
+            className="group inline-flex items-center gap-2 px-4 py-2 bg-amber-400/20 hover:bg-amber-400/30 backdrop-blur-sm rounded-full border border-amber-300/40 transition-colors"
+          >
+            <span className="text-base leading-none">🤠</span>
+            <span className="text-white text-sm font-medium">
+              Neu: Line Dance Kurse 2027
+            </span>
+            <ChevronRight className="w-4 h-4 text-amber-200 transition-transform group-hover:translate-x-0.5" />
+          </a>
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
