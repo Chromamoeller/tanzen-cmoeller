@@ -17,16 +17,6 @@ export default function Instructor() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent"></div>
             </div>
-
-            {/* Floating Stats */}
-            <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-1">
-                  15+
-                </div>
-                <div className="text-sm text-gray-600">Jahre Erfahtung</div>
-              </div>
-            </div>
           </div>
 
           {/* Content */}
