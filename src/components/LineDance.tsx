@@ -122,7 +122,7 @@ export default function LineDance() {
       duration: "5x60 Minuten",
       flyer: SommerFlyer,
       color: "from-amber-500 to-orange-500",
-      availability: "free",
+      availability: "few",
     },
     {
       id: "kurs-b",
@@ -141,7 +141,7 @@ export default function LineDance() {
       duration: "5x60 Minuten",
       flyer: SommerFlyer,
       color: "from-orange-500 to-red-500",
-      availability: "free",
+      availability: "few",
     },
     {
       id: "kurs-c",
