@@ -90,7 +90,7 @@ export default function LineDance() {
       id: "herbst-2",
       name: "Line Dance im Herbst",
       season: "Herbst",
-      level: "Fortgeschritten",
+      level: "Einsteiger",
       icon: <Clock className="w-6 h-6" />,
       dates: [
         "11.10.2026",

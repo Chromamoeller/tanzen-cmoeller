@@ -98,7 +98,7 @@ export default function DanceStyles() {
         "Vielseitig zur Musik einsetzbar",
       ],
       benefits: [
-        "Einfach zu Mastern",
+        "Einfach zu Verstehen und zu lernen",
         "Großartlig für Partys",
         "Fördert soziale Interaktion",
         "Zeitlos",
@@ -150,8 +150,8 @@ export default function DanceStyles() {
                         style.difficulty === "Standard"
                           ? "bg-green-100 text-green-800"
                           : style.difficulty === "Latein"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-red-100 text-red-800"
+                            ? "bg-yellow-100 text-yellow-800"
+                            : "bg-red-100 text-red-800"
                       }`}
                     >
                       {style.difficulty}
