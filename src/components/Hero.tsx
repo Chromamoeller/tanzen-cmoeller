@@ -16,12 +16,16 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+          <a
+            href="#kurse"
+            className="group inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full border border-white/20 transition-colors"
+          >
             <Sparkles className="w-4 h-4 text-yellow-300" />
             <span className="text-white/90 text-sm font-medium">
               Hier startet deine Tanzreise
             </span>
-          </div>
+            <ChevronRight className="w-4 h-4 text-white/70 transition-transform group-hover:translate-x-0.5" />
+          </a>
 
           <a
             href="#linedance"
