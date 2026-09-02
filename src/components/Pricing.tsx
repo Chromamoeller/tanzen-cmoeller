@@ -49,6 +49,14 @@ interface CourseOffer {
   availability?: Availability;
 }
 
+interface TrialOffer {
+  title: string;
+  subtitle: string;
+  sessions: string[];
+  price: string;
+  priceNote: string;
+}
+
 interface CourseCategory {
   id: string;
   title: string;
@@ -59,6 +67,7 @@ interface CourseCategory {
   accentBg: string;
   accentText: string;
   offers: CourseOffer[];
+  trial?: TrialOffer;
 }
 
 export default function Pricing() {
@@ -76,32 +85,40 @@ export default function Pricing() {
         {
           id: "gesellschaftstanz-montag",
           name: "Gesellschaftstanz für Anfänger – Kurs 1 (Montag)",
-          price: "105 €",
-          duration: "pro Person · 6x60 Minuten",
+          price: "210 €",
+          duration: "pro Paar · 6x60 Minuten",
           icon: <CalendarDays className="w-5 h-5" />,
           features: [
             "09.11. – 14.12.2026, jeweils 20:00 Uhr",
             "Wir tanzen: Walzer, Discofox, Chachacha, Tango",
             "Praktisch und leicht verständlich",
-            "Probestunde am 21.09.2026 für nur 10 € pro Paar",
           ],
           availability: "free",
         },
         {
           id: "gesellschaftstanz-mittwoch",
           name: "Gesellschaftstanz für Anfänger – Kurs 2 (Mittwoch)",
-          price: "105 €",
-          duration: "pro Person · 6x60 Minuten",
+          price: "210 €",
+          duration: "pro Paar · 6x60 Minuten",
           icon: <CalendarDays className="w-5 h-5" />,
           features: [
             "11.11. – 16.12.2026, jeweils 20:00 Uhr",
             "Wir tanzen: Walzer, Discofox, Chachacha, Tango",
             "Praktisch und leicht verständlich",
-            "Probestunde am 23.09.2026 für nur 10 € pro Paar",
           ],
           availability: "free",
         },
       ],
+      trial: {
+        title: "Vorerst eine Probestunde?",
+        subtitle: "Jetzt unverbindlich testen!",
+        sessions: [
+          "Montag, 21.09.2026 · 1x60 Minuten",
+          "Mittwoch, 23.09.2026 · 1x60 Minuten",
+        ],
+        price: "10 €",
+        priceNote: "pro Paar",
+      },
     },
     {
       id: "fortschritt",
@@ -116,8 +133,8 @@ export default function Pricing() {
         {
           id: "gesellschaftstanz-fortgeschritten-montag",
           name: "Gesellschaftstanz für Fortgeschrittene – Kurs 1 (Montag)",
-          price: "105 €",
-          duration: "pro Person · 6x60 Minuten",
+          price: "220 €",
+          duration: "pro Paar · 6x60 Minuten",
           icon: <CalendarDays className="w-5 h-5" />,
           features: [
             "Start: Januar 2027 – genaue Termine folgen",
@@ -129,8 +146,8 @@ export default function Pricing() {
         {
           id: "gesellschaftstanz-fortgeschritten-mittwoch",
           name: "Gesellschaftstanz für Fortgeschrittene – Kurs 2 (Mittwoch)",
-          price: "105 €",
-          duration: "pro Person · 6x60 Minuten",
+          price: "220 €",
+          duration: "pro Paar · 6x60 Minuten",
           icon: <CalendarDays className="w-5 h-5" />,
           features: [
             "Start: Januar 2027 – genaue Termine folgen",
@@ -178,7 +195,7 @@ export default function Pricing() {
       offers: [
         {
           id: "private",
-          name: "Privatstunde mit Tanzlehrer",
+          name: "Privatstunde",
           price: "100 €",
           duration: "pro Stunde",
           icon: <Crown className="w-5 h-5" />,
@@ -223,7 +240,10 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+    <section
+      id="kurse"
+      className="py-20 bg-gradient-to-br from-gray-50 to-purple-50 scroll-mt-8"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
@@ -330,6 +350,54 @@ export default function Pricing() {
                   </div>
                 ))}
               </div>
+
+              {category.trial && (
+                <div className="relative mt-6">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 rounded-2xl blur opacity-60 animate-pulse" />
+
+                  <div className="relative overflow-hidden rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 shadow-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="pointer-events-none absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/70 to-transparent" />
+
+                    <Sparkles className="pointer-events-none absolute top-3 right-4 w-4 h-4 text-amber-400 animate-pulse" />
+                    <Sparkles className="pointer-events-none absolute bottom-3 left-4 w-3 h-3 text-amber-400 animate-pulse [animation-delay:700ms]" />
+
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-300/60">
+                        <Star className="w-6 h-6 fill-white" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-gray-800">
+                          {category.trial.title}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          {category.trial.subtitle}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+                      {category.trial.sessions.map((session, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-2 text-gray-700 text-sm"
+                        >
+                          <CalendarDays className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                          {session}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-center flex-shrink-0 shadow-lg shadow-amber-300/60 ring-4 ring-amber-200 animate-pulse">
+                      <span className="text-lg font-bold leading-none">
+                        {category.trial.price}
+                      </span>
+                      <span className="text-[10px] leading-none mt-1">
+                        {category.trial.priceNote}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
