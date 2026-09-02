@@ -10,7 +10,45 @@ import {
   TrendingUp,
   Gem,
   Star,
+  Mail,
 } from "lucide-react";
+
+const CONTACT_EMAIL = "tanzen.cmoeller@gmx.de";
+
+function buildMailtoLink(subject: string, body: string) {
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
+}
+
+function buildRegistrationBody(courseLabel: string) {
+  return [
+    "Hallo,",
+    "",
+    `ich melde mich für folgenden Kurs an: ${courseLabel}`,
+    "",
+    "Vor- und Nachname: ",
+    "Name des Tanzpartners / der Tanzpartnerin: ",
+    "Telefonnummer für Rückfragen: ",
+    "Vorkenntnisse (optional, z.B. Anfänger / schon Tanzerfahrung): ",
+    "",
+  ].join("\n");
+}
+
+function buildTrialBody(sessions: string[]) {
+  return [
+    "Hallo,",
+    "",
+    "ich möchte gerne eine Probestunde vereinbaren:",
+    sessions.join(" oder\n"),
+    "",
+    "Vor- und Nachname: ",
+    "Name des Tanzpartners / der Tanzpartnerin: ",
+    "Telefonnummer für Rückfragen: ",
+    "Vorkenntnisse (optional, z.B. Anfänger / schon Tanzerfahrung): ",
+    "",
+  ].join("\n");
+}
 
 type Availability = "free" | "few" | "full";
 
@@ -329,7 +367,7 @@ export default function Pricing() {
 
                     {offer.availability && (
                       <div
-                        className={`flex items-center justify-center gap-2 rounded-full border px-4 py-2 ${
+                        className={`mb-4 flex items-center justify-center gap-2 rounded-full border px-4 py-2 ${
                           availabilityConfig[offer.availability].bg
                         }`}
                       >
@@ -347,6 +385,17 @@ export default function Pricing() {
                         </span>
                       </div>
                     )}
+
+                    <a
+                      href={buildMailtoLink(
+                        `Anmeldung: ${offer.name}`,
+                        buildRegistrationBody(offer.name),
+                      )}
+                      className={`flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-white ${category.accentBg} hover:opacity-90 transition-opacity`}
+                    >
+                      <Mail className="w-4 h-4" />
+                      Jetzt anmelden
+                    </a>
                   </div>
                 ))}
               </div>
@@ -387,14 +436,20 @@ export default function Pricing() {
                       ))}
                     </div>
 
-                    <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-center flex-shrink-0 shadow-lg shadow-amber-300/60 ring-4 ring-amber-200 animate-pulse">
+                    <a
+                      href={buildMailtoLink(
+                        `Anfrage Probestunde: ${category.title}`,
+                        buildTrialBody(category.trial.sessions),
+                      )}
+                      className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-center flex-shrink-0 shadow-lg shadow-amber-300/60 ring-4 ring-amber-200 animate-pulse hover:scale-105 transition-transform"
+                    >
                       <span className="text-lg font-bold leading-none">
                         {category.trial.price}
                       </span>
                       <span className="text-[10px] leading-none mt-1">
                         {category.trial.priceNote}
                       </span>
-                    </div>
+                    </a>
                   </div>
                 </div>
               )}
