@@ -3,7 +3,6 @@ import {
   Check,
   Crown,
   Users,
-  User,
   Heart,
   Sparkles,
   CalendarDays,
