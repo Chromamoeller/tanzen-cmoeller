@@ -49,25 +49,6 @@ export default function LineDance() {
 
   const courses: LineDanceCourse[] = [
     {
-      id: "august",
-      name: "Line Dance im August",
-      season: "August",
-      level: "Einsteiger",
-      icon: <CalendarDays className="w-6 h-6" />,
-      dates: [
-        "02.08.2026",
-        "09.08.2026",
-        "16.08.2026",
-        "23.08.2026",
-        "30.08.2026",
-      ],
-      time: "19:15 Uhr",
-      duration: "5x60 Minuten",
-      flyer: SommerFlyer,
-      color: "from-amber-500 to-orange-500",
-      availability: "free",
-    },
-    {
       id: "herbst-1",
       name: "Line Dance im Herbst",
       season: "Herbst",
