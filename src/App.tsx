@@ -147,9 +147,21 @@ function App() {
                 <div>
                   <p className="font-medium text-white mb-1">Kontakt</p>
                   <p>
-                    Tel.-WhatsApp: 0151-40144251
+                    Tel.-WhatsApp:{" "}
+                    <a
+                      href="tel:+4915140144251"
+                      className="hover:text-white transition-colors underline"
+                    >
+                      0151-40144251
+                    </a>
                     <br />
-                    Tel.-WhatsApp: 0177-8903997
+                    Tel.-WhatsApp:{" "}
+                    <a
+                      href="tel:+491778903997"
+                      className="hover:text-white transition-colors underline"
+                    >
+                      0177-8903997
+                    </a>
                     <br />
                     Email: tanzen.cmoeller@gmx.de
                   </p>

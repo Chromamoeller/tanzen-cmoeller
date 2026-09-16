@@ -146,16 +146,16 @@ export default function Pricing() {
           availability: "free",
         },
       ],
-      trial: {
-        title: "Vorerst eine Probestunde?",
-        subtitle: "Jetzt unverbindlich testen!",
-        sessions: [
-          "Montag, 21.09.2026 · 1x60 Minuten",
-          "Mittwoch, 23.09.2026 · 1x60 Minuten",
-        ],
-        price: "10 €",
-        priceNote: "pro Paar",
-      },
+      // trial: {
+      //   title: "Vorerst eine Probestunde?",
+      //   subtitle: "Jetzt unverbindlich testen!",
+      //   sessions: [
+      //     "Montag, 21.09.2026 · 1x60 Minuten",
+      //     "Mittwoch, 23.09.2026 · 1x60 Minuten",
+      //   ],
+      //   price: "10 €",
+      //   priceNote: "pro Paar",
+      // },
     },
     {
       id: "weiterfuehrend",
