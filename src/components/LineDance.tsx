@@ -17,6 +17,7 @@ interface LineDanceCourse {
   flyer: string;
   color: string;
   availability: Availability;
+  note?: string;
 }
 
 const availabilityConfig: Record<
@@ -44,48 +45,10 @@ const availabilityConfig: Record<
 };
 
 export default function LineDance() {
-  const [selectedCourse, setSelectedCourse] = useState<string>("herbst-1");
+  const [selectedCourse, setSelectedCourse] = useState<string>("kurs-a");
   const [preview, setPreview] = useState<string | null>(null);
 
   const courses: LineDanceCourse[] = [
-    {
-      id: "herbst-1",
-      name: "Line Dance im Herbst",
-      season: "Herbst",
-      level: "Einsteiger",
-      icon: <Users className="w-6 h-6" />,
-      dates: [
-        "11.10.2026",
-        "18.10.2026",
-        "25.10.2026",
-        "08.11.2026",
-        "15.11.2026",
-      ],
-      time: "19:15 Uhr",
-      duration: "5x60 Minuten",
-      flyer: HerbstFlyer,
-      color: "from-orange-600 to-red-600",
-      availability: "full",
-    },
-    {
-      id: "herbst-2",
-      name: "Line Dance im Herbst",
-      season: "Herbst",
-      level: "Einsteiger",
-      icon: <Clock className="w-6 h-6" />,
-      dates: [
-        "11.10.2026",
-        "18.10.2026",
-        "25.10.2026",
-        "08.11.2026",
-        "15.11.2026",
-      ],
-      time: "20:30 Uhr",
-      duration: "5x60 Minuten",
-      flyer: HerbstFlyer,
-      color: "from-red-700 to-amber-700",
-      availability: "full",
-    },
     {
       id: "kurs-a",
       name: "Kurs A",
@@ -103,7 +66,7 @@ export default function LineDance() {
       duration: "5x60 Minuten",
       flyer: SommerFlyer,
       color: "from-amber-500 to-orange-500",
-      availability: "full",
+      availability: "few",
     },
     {
       id: "kurs-b",
@@ -142,6 +105,7 @@ export default function LineDance() {
       flyer: SommerFlyer,
       color: "from-yellow-600 to-amber-600",
       availability: "free",
+      note: "Anmeldung noch nicht freigeschaltet.",
     },
     {
       id: "kurs-d",
@@ -161,6 +125,7 @@ export default function LineDance() {
       flyer: SommerFlyer,
       color: "from-red-600 to-orange-700",
       availability: "free",
+      note: "Anmeldung noch nicht freigeschaltet.",
     },
     {
       id: "kurs-e",
@@ -180,6 +145,7 @@ export default function LineDance() {
       flyer: HerbstFlyer,
       color: "from-orange-600 to-red-700",
       availability: "free",
+      note: "Anmeldung noch nicht freigeschaltet.",
     },
   ];
 
@@ -285,24 +251,30 @@ export default function LineDance() {
                             {course.duration}
                           </span>
                         </div>
-                        <div
-                          className={`flex items-center justify-center gap-2 rounded-full border px-4 py-2 ${
-                            availabilityConfig[course.availability].bg
-                          }`}
-                        >
-                          <span
-                            className={`w-3 h-3 rounded-full flex-shrink-0 ${
-                              availabilityConfig[course.availability].dot
-                            }`}
-                          />
-                          <span
-                            className={`text-sm font-semibold ${
-                              availabilityConfig[course.availability].text
+                        {course.note ? (
+                          <div className="flex items-center justify-center rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-center text-sm font-semibold text-gray-600">
+                            {course.note}
+                          </div>
+                        ) : (
+                          <div
+                            className={`flex items-center justify-center gap-2 rounded-full border px-4 py-2 ${
+                              availabilityConfig[course.availability].bg
                             }`}
                           >
-                            {availabilityConfig[course.availability].label}
-                          </span>
-                        </div>
+                            <span
+                              className={`w-3 h-3 rounded-full flex-shrink-0 ${
+                                availabilityConfig[course.availability].dot
+                              }`}
+                            />
+                            <span
+                              className={`text-sm font-semibold ${
+                                availabilityConfig[course.availability].text
+                              }`}
+                            >
+                              {availabilityConfig[course.availability].label}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

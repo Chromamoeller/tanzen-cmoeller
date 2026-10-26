@@ -130,7 +130,7 @@ export default function Pricing() {
             "Für Einsteiger – keine Vorkenntnisse nötig",
             "Der perfekte Einstieg in den Discofox",
           ],
-          availability: "free",
+          availability: "few",
         },
         {
           id: "gesellschaftstanz-mittwoch",
@@ -169,16 +169,17 @@ export default function Pricing() {
       offers: [
         {
           id: "group",
-          name: "Sonntag 18:00 Uhr",
+          name: "Gesellschaftstanz (Chachacha, Tango etc.)",
           price: "170 €",
           duration: "pro Paar · 4x60 Minuten",
           icon: <Users className="w-5 h-5" />,
           features: [
+            "Sonntag, 18:00 Uhr",
             "Einstieg immer möglich",
             "Mehr Spaß durch gemeinsame Erlebnisse",
             "Motivation durch die Energie der Gruppe",
           ],
-          availability: "free",
+          availability: "few",
         },
       ],
     },
